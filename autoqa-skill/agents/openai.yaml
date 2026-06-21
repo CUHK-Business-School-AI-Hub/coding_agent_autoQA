@@ -1,0 +1,4 @@
+interface:
+  display_name: "AutoQA"
+  short_description: "Evidence-driven QA for constitution-governed software"
+  default_prompt: "Use $autoqa-skill to plan and run layered QA for this project."

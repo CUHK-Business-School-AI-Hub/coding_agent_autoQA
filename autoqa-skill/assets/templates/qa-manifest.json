@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "project": "REPLACE_ME",
+  "evidence_max_age_hours": 24,
+  "governance": [
+    {
+      "path": "docs/SPEC.md",
+      "kind": "spec"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "REQ-001",
+      "description": "REPLACE_ME with an observable business requirement",
+      "source": "docs/SPEC.md#replace-me"
+    }
+  ],
+  "commands": [
+    {
+      "id": "cmd-example",
+      "argv": [
+        "python3",
+        "-m",
+        "pytest",
+        "tests/example_test.py"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 120,
+      "required_phases": [
+        "automated",
+        "release"
+      ]
+    }
+  ],
+  "source_files": [
+    {
+      "path": "src/example.py",
+      "kind": "executable",
+      "command_ids": [
+        "cmd-example"
+      ],
+      "coverage_reason": "Narrow import plus business smoke behavior"
+    }
+  ],
+  "modules": [
+    {
+      "id": "example-module",
+      "description": "REPLACE_ME",
+      "entries": [
+        {
+          "id": "entry-create",
+          "description": "Create one business record"
+        }
+      ],
+      "exits": [
+        {
+          "id": "exit-created",
+          "description": "Created record or a contractual rejection"
+        }
+      ],
+      "applicable_classes": [
+        "happy",
+        "negative"
+      ],
+      "non_happy_exemption": "",
+      "cases": [
+        {
+          "id": "CASE-001",
+          "business_rule": "A valid request creates exactly one record",
+          "class": "happy",
+          "requirement_ids": [
+            "REQ-001"
+          ],
+          "entry_ids": [
+            "entry-create"
+          ],
+          "exit_ids": [
+            "exit-created"
+          ],
+          "command_ids": [
+            "cmd-example"
+          ]
+        },
+        {
+          "id": "CASE-002",
+          "business_rule": "An invalid request is rejected without a durable write",
+          "class": "negative",
+          "requirement_ids": [
+            "REQ-001"
+          ],
+          "entry_ids": [
+            "entry-create"
+          ],
+          "exit_ids": [
+            "exit-created"
+          ],
+          "command_ids": [
+            "cmd-example"
+          ]
+        }
+      ]
+    }
+  ],
+  "flows": [
+    {
+      "id": "FLOW-001",
+      "name": "REPLACE_ME with a business journey",
+      "variant": "happy",
+      "requirement_ids": [
+        "REQ-001"
+      ],
+      "command_ids": [
+        "cmd-example"
+      ]
+    }
+  ],
+  "flow_non_happy_exemption": "REPLACE_ME or add alternate/failure flows",
+  "human_checks": [
+    {
+      "id": "HUMAN-001",
+      "name": "REPLACE_ME with a visual or usability check",
+      "requirement_ids": [
+        "REQ-001"
+      ],
+      "steps": [
+        "REPLACE_ME"
+      ],
+      "expected": "REPLACE_ME",
+      "severity_if_failed": "P1",
+      "status": "pending"
+    }
+  ],
+  "defects": [],
+  "research": []
+}
+
